@@ -30,7 +30,7 @@ Close the Simulation Once done, by going to Simulation → "Close Simulation
 
 Input/Output Signal Diagram:
 
-**RTL CODE:**
+##RTL CODE:
 D Flip Flop
 ```
 module d_ff (
@@ -124,7 +124,7 @@ endmodule
 ```
 
 
-**TestBench:**
+##TestBench:
 
 D Flip Flop
 ```
@@ -250,28 +250,35 @@ endmodule
 ```
 
 
-**Output waveform:**
+##Output waveform:
 
 D Flip Flop
+![WhatsApp Image 2025-09-16 at 20 37 19_167b616a](https://github.com/user-attachments/assets/44cf1980-4b48-4c39-a15c-da90f5797ad7)
+
 
 SR Flip Flop
+![WhatsApp Image 2025-09-16 at 21 02 36_40748ab0](https://github.com/user-attachments/assets/95bba1e6-cfe5-417d-823c-b337d0fe7a77)
+
 
 JK Flip Flop
+![WhatsApp Image 2025-09-16 at 20 47 11_34f2e35b](https://github.com/user-attachments/assets/9165fb4f-8640-46fb-99ee-b719943795d2)
+
 
 T Flip Flop
+![WhatsApp Image 2025-09-16 at 20 55 57_a212fef6](https://github.com/user-attachments/assets/99c897e2-69e3-4cb6-8feb-ef2834240ec1)
 
 
-**Conclusion:**
+##Conclusion:
 
 All four flip-flops (D, JK, T, SR) were successfully designed and simulated in Verilog using Vivado 2023.1. The outputs matched theoretical truth tables:
 
-D Flip-Flop stored input D on clock edge.
+  D Flip-Flop stored input D on clock edge.
 
-JK Flip-Flop performed set, reset, hold, and toggle operations.
+  JK Flip-Flop performed set, reset, hold, and toggle operations.
 
-T Flip-Flop toggled output on each clock when T=1.
+  T Flip-Flop toggled output on each clock when T=1.
 
-SR Flip-Flop performed set/reset operations with invalid state for S=R=1.
+  SR Flip-Flop performed set/reset operations with invalid state for S=R=1.
 
 Thus, the functionality of basic sequential circuits was verified using simulation.
 
