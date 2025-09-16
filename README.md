@@ -30,21 +30,248 @@ Close the Simulation Once done, by going to Simulation → "Close Simulation
 
 Input/Output Signal Diagram:
 
-D FF
+**RTL CODE:**
+D Flip Flop
+```
+module d_ff (
+    input D,
+    input clk,
+    input rst,
+    output reg Q
+);
 
-SR FF
+always @(posedge clk or posedge rst) begin
+    if (rst)
+        Q <= 0;
+    else
+        Q <= D;
+end
 
-JK FF
+endmodule
+```
 
-T FF
+SR Flip Flop
+```
+module sr_ff (
+    input S,
+    input R,
+    input clk,
+    input rst,
+    output reg Q
+);
+
+always @(posedge clk or posedge rst) begin
+    if (rst)
+        Q <= 0;
+    else begin
+        case ({S,R})
+            2'b00: Q <= Q;
+            2'b01: Q <= 0;
+            2'b10: Q <= 1;
+            2'b11: Q <= 1'bx;
+        endcase
+    end
+end
+
+endmodule
+```
+
+JK Flip Flop
+```
+module jk_ff (
+    input J,
+    input K,
+    input clk,
+    input rst,
+    output reg Q
+);
+
+always @(posedge clk or posedge rst) begin
+    if (rst)
+        Q <= 0;
+    else begin
+        case ({J,K})
+            2'b00: Q <= Q;
+            2'b01: Q <= 0;
+            2'b10: Q <= 1;
+            2'b11: Q <= ~Q;
+        endcase
+    end
+end
+
+endmodule
+```
+
+T Flip Flop
+```
+module t_ff (
+    input T,
+    input clk,
+    input rst,
+    output reg Q
+);
+
+always @(posedge clk or posedge rst) begin
+    if (rst)
+        Q <= 0;
+    else if (T)
+        Q <= ~Q;
+    else
+        Q <= Q;
+end
+
+endmodule
+```
 
 
-RTL Code:
+**TestBench:**
 
-TestBench:
+D Flip Flop
+```
+`timescale 1ns/1ps
+module tb_d_ff;
 
-Output waveform:
+reg D, clk, rst;
+wire Q;
 
-Conclusion:
+d_ff uut (
+    .D(D),
+    .clk(clk),
+    .rst(rst),
+    .Q(Q)
+);
 
+always #5 clk = ~clk;
+
+initial begin
+    clk = 0; rst = 1; D = 0;
+    #10 rst = 0;
+    #10 D = 1;
+    #10 D = 0;
+    #10 D = 1;
+    #20 $finish;
+end
+
+endmodule
+```
+
+SR Flip Flop
+```
+`timescale 1ns/1ps
+module tb_sr_ff;
+
+reg S, R, clk, rst;
+wire Q;
+
+sr_ff uut (
+    .S(S),
+    .R(R),
+    .clk(clk),
+    .rst(rst),
+    .Q(Q)
+);
+
+always #5 clk = ~clk;
+
+initial begin
+    clk = 0; rst = 1; S = 0; R = 0;
+    #10 rst = 0;
+    #10 S = 0; R = 0;
+    #10 S = 1; R = 0;
+    #10 S = 0; R = 1;
+    #10 S = 1; R = 1;
+    #10 S = 0; R = 0;
+    #20 $finish;
+end
+
+endmodule
+```
+
+JK Flip Flop
+```
+`timescale 1ns/1ps
+module tb_jk_ff;
+
+reg J, K, clk, rst;
+wire Q;
+
+jk_ff uut (
+    .J(J),
+    .K(K),
+    .clk(clk),
+    .rst(rst),
+    .Q(Q)
+);
+
+always #5 clk = ~clk;
+
+initial begin
+    clk = 0; rst = 1; J = 0; K = 0;
+    #10 rst = 0;
+    #10 J = 0; K = 0;
+    #10 J = 0; K = 1;
+    #10 J = 1; K = 0;
+    #10 J = 1; K = 1;
+    #20 $finish;
+end
+
+endmodule
+```
+
+T Flip Flop
+```
+`timescale 1ns/1ps
+module tb_t_ff;
+
+reg T, clk, rst;
+wire Q;
+
+t_ff uut (
+    .T(T),
+    .clk(clk),
+    .rst(rst),
+    .Q(Q)
+);
+
+always #5 clk = ~clk;
+
+initial begin
+    clk = 0; rst = 1; T = 0;
+    #10 rst = 0;
+    #10 T = 0;
+    #10 T = 1;
+    #10 T = 1;
+    #10 T = 0;
+    #10 T = 1;
+    #20 $finish;
+end
+
+endmodule
+```
+
+
+**Output waveform:**
+
+D Flip Flop
+
+SR Flip Flop
+
+JK Flip Flop
+
+T Flip Flop
+
+
+**Conclusion:**
+
+All four flip-flops (D, JK, T, SR) were successfully designed and simulated in Verilog using Vivado 2023.1. The outputs matched theoretical truth tables:
+
+D Flip-Flop stored input D on clock edge.
+
+JK Flip-Flop performed set, reset, hold, and toggle operations.
+
+T Flip-Flop toggled output on each clock when T=1.
+
+SR Flip-Flop performed set/reset operations with invalid state for S=R=1.
+
+Thus, the functionality of basic sequential circuits was verified using simulation.
 
