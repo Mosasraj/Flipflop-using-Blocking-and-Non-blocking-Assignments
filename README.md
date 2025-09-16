@@ -30,7 +30,7 @@ Close the Simulation Once done, by going to Simulation → "Close Simulation
 
 Input/Output Signal Diagram:
 
-##RTL CODE:
+## RTL CODE:
 D Flip Flop
 ```
 module d_ff (
@@ -124,7 +124,7 @@ endmodule
 ```
 
 
-##TestBench:
+## TestBench:
 
 D Flip Flop
 ```
@@ -250,7 +250,7 @@ endmodule
 ```
 
 
-##Output waveform:
+## Output waveform:
 
 D Flip Flop
 ![WhatsApp Image 2025-09-16 at 20 37 19_167b616a](https://github.com/user-attachments/assets/44cf1980-4b48-4c39-a15c-da90f5797ad7)
@@ -268,7 +268,7 @@ T Flip Flop
 ![WhatsApp Image 2025-09-16 at 20 55 57_a212fef6](https://github.com/user-attachments/assets/99c897e2-69e3-4cb6-8feb-ef2834240ec1)
 
 
-##Conclusion:
+## Conclusion:
 
 All four flip-flops (D, JK, T, SR) were successfully designed and simulated in Verilog using Vivado 2023.1. The outputs matched theoretical truth tables:
 
