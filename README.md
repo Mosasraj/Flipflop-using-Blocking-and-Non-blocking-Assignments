@@ -28,11 +28,10 @@ Take screenshots of the waveform window and include them in your lab report to d
 You can include the timing diagram from the simulation window showing the correct functionality of the Seven Segment across different select inputs and data inputs. 
 Close the Simulation Once done, by going to Simulation → "Close Simulation
 
-Input/Output Signal Diagram:
 
 ## RTL CODE:
 D Flip Flop
-```
+```verilog
 module d_ff (
     input D,
     input clk,
@@ -51,7 +50,7 @@ endmodule
 ```
 
 SR Flip Flop
-```
+```verilog
 module sr_ff (
     input S,
     input R,
@@ -77,7 +76,7 @@ endmodule
 ```
 
 JK Flip Flop
-```
+```verilog
 module jk_ff (
     input J,
     input K,
@@ -103,7 +102,7 @@ endmodule
 ```
 
 T Flip Flop
-```
+```verilog
 module t_ff (
     input T,
     input clk,
@@ -127,7 +126,7 @@ endmodule
 ## TestBench:
 
 D Flip Flop
-```
+```verilog
 `timescale 1ns/1ps
 module tb_d_ff;
 
@@ -156,7 +155,7 @@ endmodule
 ```
 
 SR Flip Flop
-```
+```verilog
 `timescale 1ns/1ps
 module tb_sr_ff;
 
@@ -188,7 +187,7 @@ endmodule
 ```
 
 JK Flip Flop
-```
+```verilog
 `timescale 1ns/1ps
 module tb_jk_ff;
 
@@ -219,7 +218,7 @@ endmodule
 ```
 
 T Flip Flop
-```
+```verilog
 `timescale 1ns/1ps
 module tb_t_ff;
 
