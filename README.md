@@ -267,9 +267,9 @@ T Flip Flop
 ![WhatsApp Image 2025-09-16 at 20 55 57_a212fef6](https://github.com/user-attachments/assets/99c897e2-69e3-4cb6-8feb-ef2834240ec1)
 
 
-## Conclusion:
+## Result:
 
-All four flip-flops (D, JK, T, SR) were successfully designed and simulated in Verilog using Vivado 2023.1. The outputs matched theoretical truth tables:
+All four flip-flops (D, JK, T, SR) were successfully designed and simulated in Verilog using Vivado. The outputs matched theoretical truth tables:
 
   D Flip-Flop stored input D on clock edge.
 
